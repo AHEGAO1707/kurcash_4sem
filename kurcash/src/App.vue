@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="nav" class="header">
+      <a href="https://github.com/AHEGAO1707/kurcash_4sem"><img width="50" src="./assets/github.png"></a>
       <router-link class="nav__element" to="/">О сайте</router-link>
 
       <router-link class="nav__element" id="Login" style="display: inline" to="/login">Авторизироваться</router-link>
@@ -84,12 +85,14 @@ body {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   border: 1px black solid;
+  flex-wrap: wrap;
 }
 
 .nav__element{
   color: black;
   text-decoration: none;
   font-size: 1.5em;
+  padding: 5px;
 }
 
 .nav__cool-button{

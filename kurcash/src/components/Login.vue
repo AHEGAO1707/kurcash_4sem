@@ -24,7 +24,6 @@ import axios from 'axios'
 import router from '../router/router'
 import Swal from "sweetalert2";
 
-
 export default {
   data() {
     return {
@@ -87,10 +86,12 @@ export default {
   }
 }
 </script>
+
 <style>
 .cool-form{
   text-align: center;
-  width: max-content;
+  width: fit-content !important;
+  max-width: max-content;
   margin: 10% auto auto;
   background-color: white;
   border-radius: 20px;
@@ -98,6 +99,7 @@ export default {
   ;
 }
 .input-cool{
+  height: 20px;
   border-radius: 5px;
   width: 100%;
 }

@@ -1,10 +1,15 @@
 <template>
   <div class="main_container">
     <div class="controls-holder">
-      <div><h3 style="display: inline">Добавить карточку с заданием</h3> <img style=" cursor: pointer; display: inline" @click="add_task" id="add_task" width="30" src="../assets/add.png"></div>
-      <div><h3 style="display: inline">Сохранить изменения </h3> <img style=" cursor: pointer; display: inline" @click="confirm_updates" id="conf_upd" width="30" src="../assets/confirm.png"></div>
+
+      <div><h3 style="display: inline">Добавить карточку с заданием</h3> <img style=" cursor: pointer; display: inline"
+                                                                              @click="add_task" id="add_task" width="30"
+                                                                              src="../assets/add.png"></div>
+      <div><h3 style="display: inline">Сохранить изменения </h3> <img style=" cursor: pointer; display: inline"
+                                                                      @click="confirm_updates" id="conf_upd" width="30"
+                                                                      src="../assets/confirm.png"></div>
     </div>
-      <div class="container_grid">
+    <div class="container_grid">
       <div class="column">
         <h1>Планируется</h1>
         <draggable
@@ -12,16 +17,17 @@
             class="vList__draggable-item"
             v-model="tasks1"
         >
-        <div
-            v-for="(task, i) in tasks1"
-            :key="i"
-            :id=task.task_id
-            class="task"
-        >
-          <h2 class="task-desc">{{ task.title }}</h2>
-          <p class="task-desc">{{ task.description }}</p>
-          <img style=" cursor: pointer; display: inline" @click="delete_task(task)" width="30" src="../assets/delete.png">
-        </div>
+          <div
+              v-for="(task, i) in tasks1"
+              :key="i"
+              :id=task.task_id
+              class="task"
+          >
+            <h2 class="task-desc">{{ task.title }}</h2>
+            <p class="task-desc">{{ task.description }}</p>
+            <img style=" cursor: pointer; display: inline" @click="delete_task(task)" width="30"
+                 src="../assets/delete.png">
+          </div>
         </draggable>
       </div>
       <div class="column">
@@ -31,37 +37,44 @@
             class="vList__draggable-item"
             v-model="tasks2"
         >
-        <div
-            v-for="(task, i) in tasks2"
-            :key="i"
-            :id=task.task_id
-            class="task"
-        >
-          <h2 class="task-desc">{{ task.title }}</h2>
-          <p class="task-desc">{{ task.description }}</p>
-          <img style=" cursor: pointer; display: inline" @click="delete_task(task)" width="30" src="../assets/delete.png">
-        </div>
+          <div
+              v-for="(task, i) in tasks2"
+              :key="i"
+              :id=task.task_id
+              class="task"
+          >
+            <h2 class="task-desc">{{ task.title }}</h2>
+            <p class="task-desc">{{ task.description }}</p>
+            <img style=" cursor: pointer; display: inline" @click="delete_task(task)" width="30"
+                 src="../assets/delete.png">
+          </div>
         </draggable>
       </div>
-      <div  class="column">
+      <div class="column">
         <h1>Выполнено</h1>
         <draggable
             group="tasks_list"
             class="vList__draggable-item"
             v-model="tasks3"
         >
-        <div
-            v-for="(task, i) in tasks3"
-            :key="i"
-            :id=task.task_id
-            class="task"
-        >
-          <h2 class="task-desc">{{ task.title }}</h2>
-          <p class="task-desc">{{ task.description }}</p>
-          <img style=" cursor: pointer; display: inline" @click="delete_task(task)" width="30" src="../assets/delete.png">
-        </div>
+          <div
+              v-for="(task, i) in tasks3"
+              :key="i"
+              :id=task.task_id
+              class="task"
+          >
+            <h2 class="task-desc">{{ task.title }}</h2>
+            <p class="task-desc">{{ task.description }}</p>
+            <img style=" cursor: pointer; display: inline" @click="delete_task(task)" width="30"
+                 src="../assets/delete.png">
+          </div>
         </draggable>
       </div>
+    </div>
+    <div style="display: flex; justify-content: center">
+      <h1>Нравится сайт? Не поленитесь
+        <router-link id="feedback" style="display: inline" to="/addFeedback">написать отзыв</router-link>! Спасибо!
+      </h1>
     </div>
   </div>
 </template>
@@ -100,9 +113,9 @@ export default {
                 icon: 'error',
                 title: 'Произошла ошибка!',
                 text: 'Произошла ошибка считывания данных для столбца "Планируется"',
-               })
-             }
-           });
+              })
+            }
+          });
     },
     getInProcessTasks() {
       let this_Comp = this;
@@ -245,11 +258,11 @@ export default {
         }
       })
     },
-    add_task(){
+    add_task() {
       router.replace('addTask')
     }
   },
-  created() {
+  mounted() {
     this.getPlanTasks();
     this.getInProcessTasks();
     this.getReadyTasks();
@@ -265,7 +278,7 @@ export default {
   border-radius: 10px;
 }
 
-h2{
+h2 {
   border-bottom: 1px black solid;
 }
 
@@ -308,7 +321,7 @@ h2{
   border-radius: 10px;
 }
 
-.task:hover{
+.task:hover {
   background: forestgreen;
   color: white;
   cursor: pointer;
@@ -321,7 +334,7 @@ h2{
   min-height: 500px;
 }
 
-.controls-holder{
+.controls-holder {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -330,7 +343,8 @@ h2{
   margin: auto;
   height: 50px;
 }
-.task-desc{
+
+.task-desc {
   width: 95%;
   word-break: break-word;
 }

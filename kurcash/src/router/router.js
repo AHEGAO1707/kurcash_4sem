@@ -8,6 +8,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import AddTask from "../components/AddTask";
 import LoginAdmin from "../components/LoginAdmin";
 import Admin from "../components/Admin";
+import AddFeedback from "../components/AddFeedback";
 
 Vue.use(Router)
 Vue.use(VueSweetalert2)
@@ -50,7 +51,12 @@ let router = new Router({
             path: '/admin',
             name: 'admin',
             component: Admin
-        }
+        },
+        {
+            path: '/addFeedback',
+            name: 'addFeedback',
+            component: AddFeedback
+        },
     ]
 })
 

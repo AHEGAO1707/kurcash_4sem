@@ -2,10 +2,11 @@
   <div class="admin_container">
     <h1 style="position: center">Всего пользователей зарегистрировано на сайте: {{total_users}}</h1>
     <h1 style="position: center">Всего карточек c заданиями присутствует в базе данных: {{total_current_tasks}}</h1>
+    <input style="padding: 10px; border-radius: 10px; width: 30%;" placeholder="Поиск по почте..." v-model="search">
     <h1 style="position: center">Список зарегистрированных пользователей:</h1>
     <div class="container_grid_admin">
       <div
-          v-for="(user, i) in users"
+          v-for="(user, i) in filtered_users"
           :key="i"
           :id=user.user_id
           class="user"
@@ -29,6 +30,7 @@ export default {
     return {
       id: "",
       users: [],
+      search: "",
       total_users: "",
       total_current_tasks: ""
     }
@@ -121,14 +123,23 @@ export default {
       })
     }
   },
+  computed: {
+    filtered_users: function () {
+      var keyword = this.search.toLowerCase();
+      return this.users.filter(
+          (x) =>
+              x.email.toLowerCase().includes(keyword)
+      );
+    },
+  },
+
 
   created() {
     this.getUsers();
     this.getTotal_users();
     this.getTotal_current_tasks();
   },
-}
-;
+};
 </script>
 
 
