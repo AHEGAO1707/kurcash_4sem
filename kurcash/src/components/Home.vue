@@ -1,16 +1,51 @@
 <template>
   <div class="main_container">
+    <div>
+      <h3 style="display: inline"> <h3>Фильтр:</h3>
+      <h3 style="display: inline"> Планируется </h3>
+      <toggle-button id = "togglePlan"
+          @change="filterPlan"
+          color="green"
+          :value="true"
+          :labels="true"
+          :font-size="18"
+          :width='60'
+          :height="30"
+      />
+      <h3 style="display: inline"> В процессе </h3>
+      <toggle-button id = "toggleProcess"
+          @change="filterProcess"
+          color="green"
+          :value="true"
+          :labels="true"
+          :font-size="18"
+          :width='60'
+          :height="30"
+      />
+      <h3 style="display: inline"> Выполнено </h3>
+      <toggle-button id = "toggleDone"
+          @change="filterDone"
+          color="green"
+          :value="true"
+          :labels="true"
+          :font-size="18"
+          :width='60'
+          :height="30"
+      />
+      </h3>
+    </div>
     <div class="controls-holder">
 
       <div><h3 style="display: inline">Добавить карточку с заданием</h3> <img style=" cursor: pointer; display: inline"
                                                                               @click="add_task" id="add_task" width="30"
                                                                               src="../assets/add.png"></div>
+
       <div><h3 style="display: inline">Сохранить изменения </h3> <img style=" cursor: pointer; display: inline"
                                                                       @click="confirm_updates" id="conf_upd" width="30"
                                                                       src="../assets/confirm.png"></div>
     </div>
     <div class="container_grid">
-      <div class="column">
+      <div class="column" id="columnPlan">
         <h1>Планируется</h1>
         <draggable
             group="tasks_list"
@@ -30,7 +65,7 @@
           </div>
         </draggable>
       </div>
-      <div class="column">
+      <div class="column" id="columnProcess">
         <h1>В процессе</h1>
         <draggable
             group="tasks_list"
@@ -45,12 +80,12 @@
           >
             <h2 class="task-desc">{{ task.title }}</h2>
             <p class="task-desc">{{ task.description }}</p>
-            <img style=" cursor: pointer; display: inline" @click="delete_task(task)" width="30"
+            <img style="cursor: pointer; display: inline" @click="delete_task(task)" width="30"
                  src="../assets/delete.png">
           </div>
         </draggable>
       </div>
-      <div class="column">
+      <div class="column" id="columnDone">
         <h1>Выполнено</h1>
         <draggable
             group="tasks_list"
@@ -85,6 +120,10 @@ import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.min.css';
 import draggable from "vuedraggable";
 import router from "../router/router";
+import {ToggleButton} from 'vue-js-toggle-button';
+import Vue from 'vue';
+
+Vue.component('ToggleButton', ToggleButton)
 
 export default {
   components: {draggable},
@@ -97,6 +136,33 @@ export default {
     }
   },
   methods: {
+    filterPlan() {
+      document.getElementById('togglePlan').value = !document.getElementById('togglePlan').value;
+      if (document.getElementById('togglePlan').value) {
+        document.getElementById('columnPlan').style.display = "none";
+      } else {
+        document.getElementById('columnPlan').style.display = "inline";
+      }
+    },
+
+    filterProcess() {
+      document.getElementById('toggleProcess').value = !document.getElementById('toggleProcess').value;
+      if (document.getElementById('toggleProcess').value) {
+        document.getElementById('columnProcess').style.display = "none";
+      } else {
+        document.getElementById('columnProcess').style.display = "inline";
+      }
+    },
+
+    filterDone() {
+      document.getElementById('toggleDone').value = !document.getElementById('toggleDone').value;
+      if (document.getElementById('toggleDone').value) {
+        document.getElementById('columnDone').style.display = "none";
+      } else {
+        document.getElementById('columnDone').style.display = "inline";
+      }
+    },
+
     getPlanTasks() {
       let this_Comp = this;
       let id = this_Comp.$store.getters.GET_ID;
@@ -287,10 +353,10 @@ h2 {
   padding: 50px;
   padding-top: 1.5%;
   margin-bottom: 50px;
-  justify-content: space-between;
+  justify-content: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, 320px);
-  gap: 2%;
+  gap: 19%;
   grid-row-end: auto;
   border-radius: 10px;
 }
