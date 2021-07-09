@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav" class="header">
-      <a href="https://github.com/AHEGAO1707/kurcash_4sem"><img width="50" src="./assets/github.png"></a>
+      <a href="https://github.com/AHEGAO1707/kurcash_4sem"><img width="60" src="./assets/github.png"></a>
       <router-link class="nav__element" to="/">О сайте</router-link>
 
       <router-link class="nav__element" id="Login" style="display: inline" to="/login">Авторизироваться</router-link>

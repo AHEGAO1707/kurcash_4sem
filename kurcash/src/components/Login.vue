@@ -96,7 +96,6 @@ export default {
   background-color: white;
   border-radius: 20px;
   padding: 0px 20px 20px 20px;
-  ;
 }
 .input-cool{
   height: 20px;
