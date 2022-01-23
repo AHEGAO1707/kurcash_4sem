@@ -9,6 +9,9 @@ import AddTask from "../components/AddTask";
 import LoginAdmin from "../components/LoginAdmin";
 import Admin from "../components/Admin";
 import AddFeedback from "../components/AddFeedback";
+import ChangePass from "../components/ChangePass";
+import LoginMainAdmin from "../components/LoginMainAdmin";
+import mainAdmin from "../components/MainAdmin";
 
 Vue.use(Router)
 Vue.use(VueSweetalert2)
@@ -22,6 +25,25 @@ let router = new Router({
             name: 'login',
             component: Login
         },
+
+        {
+            path: '/changePass',
+            name: 'changePass',
+            component: ChangePass
+        },
+
+        {
+            path: '/mainAdmin',
+            name: 'mainAdmin',
+            component: mainAdmin
+        },
+
+        {
+            path: '/loginMainAdmin',
+            name: 'loginMainAdmin',
+            component: LoginMainAdmin
+        },
+
         {
             path: '/register',
             name: 'register',

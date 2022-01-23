@@ -10,13 +10,19 @@
 
       <router-link class="nav__element" id="Admin" style="display: inline" to="/loginAdmin">Для администратора</router-link>
 
-      <router-link class="nav__element" id="Admin_page" style="display: none" to="/admin">Страница администратора</router-link>
+      <router-link class="nav__element" id="MainAdmin" style="display: inline" to="/loginMainAdmin">Для главного администратора</router-link>
+
+      <router-link class="nav__element" id="Admin_page" style="display: none" to="/admin">Личный кабинет администратора</router-link>
+
+      <router-link class="nav__element" id="Main_Admin_page" style="display: none" to="/mainAdmin">Личный кабинет главного администратора</router-link>
 
       <router-link class="nav__element" id="Home" style="display: none" to="/home">Таск-трекер</router-link>
 
-        <label id="Name_Surname" class="nav__element" style="display: none" ></label>
+      <label id="Name_Surname" class="nav__element" style="display: none" ></label>
 
-        <button id="Exit" style="display: none" class="nav__cool-button" type="button" @click="exit">Выйти</button>
+      <router-link class="nav__element" id="LichnKab" style="display: none" to="/changePass">Личный кабинет</router-link>
+
+      <button id="Exit" style="display: none" class="nav__cool-button" type="button" @click="exit">Выйти</button>
 
     </div>
     <router-view/>
@@ -37,13 +43,16 @@ export default {
 
       document.getElementById('Name_Surname').innerHTML = "";
       document.getElementById('Name_Surname').style.display = "none";
+      document.getElementById('LichnKab').style.display = "none";
 
       document.getElementById('Login').style.display = "inline";
       document.getElementById('Regis').style.display = "inline";
       document.getElementById('Admin').style.display = "inline";
+      document.getElementById('MainAdmin').style.display = "inline";
 
       document.getElementById('Exit').style.display = "none";
       document.getElementById('Admin_page').style.display = "none";
+      document.getElementById('Main_Admin_page').style.display = "none";
       document.getElementById('Home').style.display = "none";
 
       router.replace('/');

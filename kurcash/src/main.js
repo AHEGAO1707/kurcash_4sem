@@ -4,6 +4,11 @@ import router from './router/router'
 import Axios from 'axios'
 import Vuex from 'vuex'
 
+
+import Chart from 'chart.js'
+import Chartkick from 'vue-chartkick'
+Vue.use(Chartkick.use(Chart));
+
 Vue.prototype.$http = Axios;
 
 Vue.use(Vuex)

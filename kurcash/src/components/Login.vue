@@ -61,9 +61,12 @@ export default {
               document.getElementById('Name_Surname').innerHTML = this_Comp.$store.getters.GET_Name + " " + this_Comp.$store.getters.GET_Surname;
               document.getElementById('Name_Surname').style.display = "inline";
 
+              document.getElementById('LichnKab').style.display = "inline";
+
               document.getElementById('Login').style.display = "none";
               document.getElementById('Regis').style.display = "none";
               document.getElementById('Admin').style.display = "none";
+              document.getElementById('MainAdmin').style.display = "none";
 
               document.getElementById('Home').style.display = "inline";
 

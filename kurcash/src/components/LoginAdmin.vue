@@ -56,6 +56,7 @@ export default {
               document.getElementById('Login').style.display = "none";
               document.getElementById('Regis').style.display = "none";
               document.getElementById('Admin').style.display = "none";
+              document.getElementById('MainAdmin').style.display = "none";
               document.getElementById('Home').style.display = "none";
 
               document.getElementById('Admin_page').style.display = "inline";
